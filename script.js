@@ -4,6 +4,10 @@ function formatDate(date) {
   const day = String(date.getDate()).padStart(2, '0');
   const hours = String(date.getHours()).padStart(2, '0');
   const minutes = String(date.getMinutes()).padStart(2, '0');
+  const seconds = String(date.getSeconds()).padStart(2, '0');
+  
+  const msRemainder = date.getMilliseconds() % 1000;
+  const milliseconds = String(msRemainder).padStart(3, '0');
   
   // Get timezone offset like +0200
   const offset = -date.getTimezoneOffset();
@@ -11,7 +15,7 @@ function formatDate(date) {
   const offsetMinutes = String(Math.abs(offset) % 60).padStart(2, '0');
   const sign = offset >= 0 ? '+' : '-';
   
-  return `${year}-${month}-${day} ${hours}:${minutes} ${sign}${offsetHours}${offsetMinutes}`;
+  return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}${msRemainder ? "." + milliseconds : ""} ${sign}${offsetHours}${offsetMinutes}`;
 }
 
 const dateInput = document.getElementById("dateInput");
