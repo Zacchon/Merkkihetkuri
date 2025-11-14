@@ -1,3 +1,13 @@
 .debugTable thead {
     background-color: #f2f2f2;
 }
+
+.debugTable {
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+
+.debugTable td {
+    border: 1px solid #ddd;
+    padding: 4px;
+}

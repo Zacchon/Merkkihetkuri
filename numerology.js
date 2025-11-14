@@ -7,12 +7,12 @@ function generateRoundMoments(maxBase=24) {
             candidates = [];
             magnitude = Math.pow(base, exp);
             for (let n=1; n<base; n++) {
-                candidates.push([n * magnitude, `${n}*${base}^${exp} millisekuntia`]);
-                candidates.push([n * 1000 * magnitude, `${n}*${base}^${exp} sekuntia`]);
-                candidates.push([n * 1000 * 60 * magnitude, `${n}*${base}^${exp} minuuttia`]);
-                candidates.push([n * 1000 * 60 * 60 * magnitude, `${n}*${base}^${exp} tuntia`]);
-                candidates.push([n * 1000 * 60 * 60 * 24 * magnitude, `${n}*${base}^${exp} vuorokautta`]);
-                candidates.push([n * 1000 * 60 * 60 * 24 * 7 * magnitude, `${n}*${base}^${exp} viikkoa`]);
+                candidates.push([n * magnitude, `${n}×${base}<sup>${exp}</sup> millisekuntia`]);
+                candidates.push([n * 1000 * magnitude, `${n}×${base}<sup>${exp}</sup> sekuntia`]);
+                candidates.push([n * 1000 * 60 * magnitude, `${n}×${base}<sup>${exp}</sup> minuuttia`]);
+                candidates.push([n * 1000 * 60 * 60 * magnitude, `${n}×${base}<sup>${exp}</sup> tuntia`]);
+                candidates.push([n * 1000 * 60 * 60 * 24 * magnitude, `${n}×${base}<sup>${exp}</sup> vuorokautta`]);
+                candidates.push([n * 1000 * 60 * 60 * 24 * 7 * magnitude, `${n}×${base}<sup>${exp}</sup> viikkoa`]);
             }
     
             reasonableNums = candidates.filter((moment) => moment[0] < 1e15);
