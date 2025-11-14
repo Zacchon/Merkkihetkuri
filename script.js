@@ -16,19 +16,20 @@ submitInput.onclick = function() {
     const partyTimes = nextMoments(delta_millis, 8);
 
     const debugEntry = document.createElement("div");
-    let tableHTML = "<table>";
+    let tableHTML = `<table id="debugTable">`;
+    let tableHeader = `<thead><tr>` + `<th>${date} ${time}</th><th>${delta_millis}</th><th>${getWeeks(delta_millis)}</th>`+ `</tr></thead>`;
+    tableHTML += tableHeader;
     tableHTML += "<tbody>"
     for (const party of partyTimes) {
         tableHTML += "<tr>"
         console.log("HEI?", party)
         const partyDate = new Date(party[0] + event_millis);
         // DEBUG: näytä juhlistettava ajankohta millisekunteineen sekä viikkoineen; lisäksi seuraava kiinnostava ajankohta
-        tableHTML += `<td>${party}</td><td>${partyDate}</td>`
+        tableHTML += `<td>${partyDate}</td><td>${party[0]}</td><td>${party[1]}</td>`
         tableHTML += "</tr>";
     }
     tableHTML += "</tbody></table>";
-    const dateHTML = `<span style="background-color:#ffa;">${dateInput.value}  ${delta_millis}  ${getWeeks(delta_millis)}</span><br/>`
-    debugDiv.innerHTML = dateHTML + tableHTML + debugDiv.innerHTML;
+    debugDiv.innerHTML = tableHTML + debugDiv.innerHTML;
 };
 
 function nextMoments(millis, n_moments=1) {
