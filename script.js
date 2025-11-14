@@ -1,3 +1,19 @@
+function formatDate(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  const hours = String(date.getHours()).padStart(2, '0');
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+  
+  // Get timezone offset like +0200
+  const offset = -date.getTimezoneOffset();
+  const offsetHours = String(Math.floor(Math.abs(offset) / 60)).padStart(2, '0');
+  const offsetMinutes = String(Math.abs(offset) % 60).padStart(2, '0');
+  const sign = offset >= 0 ? '+' : '-';
+  
+  return `${year}-${month}-${day} ${hours}:${minutes} ${sign}${offsetHours}${offsetMinutes}`;
+}
+
 const dateInput = document.getElementById("dateInput");
 const timeInput = document.getElementById("timeInput");
 const submitInput = document.getElementById("submitInput");
@@ -29,7 +45,9 @@ submitInput.onclick = function() {
         console.log("HEI?", party)
         const partyDate = new Date(party[0] + event_millis);
         // DEBUG: näytä juhlistettava ajankohta millisekunteineen sekä viikkoineen; lisäksi seuraava kiinnostava ajankohta
-        tableHTML += `<td>${partyDate}</td><td>${party[0]}</td><td>${party[1]}</td>`
+        partyDateString = formatDate(partyDate);
+
+        tableHTML += `<td>${partyDateString}</td><td>${party[0]}</td><td>${party[1]}</td>`
         tableHTML += "</tr>";
     }
     tableHTML += "</tbody></table>";
