@@ -16,7 +16,11 @@ submitInput.onclick = function() {
     const partyTimes = nextMoments(delta_millis, 8);
 
     let tableHTML = `<table class="debugTable">`;
-    let tableHeader = `<thead><tr>` + `<th>${date} ${time}</th><th>${delta_millis}</th><th>${getWeeks(delta_millis).toFixed(3)} viikkoa</th>` + `</tr></thead>`;
+    let tableHeader = `<thead>`
+        + `<tr><th>Juhlistettava ajankohta</th><th>Delta millisekunteina</th><th>Delta viikkoina</th></tr>` 
+        + `<tr><th>${date} ${time}</th><th>${delta_millis}</th><th>${getWeeks(delta_millis).toFixed(3)}</th></tr>`
+        + `<tr style="border-top: 1px solid #aaa;"><th>Seuraavat merkkihetket:</th><th>Delta (ms)</th><th>Juhlan aihe</th></tr>`
+        + `</thead>`;
     tableHTML += tableHeader;
 
     tableHTML += "<tbody>"
