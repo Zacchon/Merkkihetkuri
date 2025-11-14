@@ -15,10 +15,10 @@ submitInput.onclick = function() {
     
     const partyTimes = nextMoments(delta_millis, 8);
 
-    const debugEntry = document.createElement("div");
-    let tableHTML = `<table id="debugTable">`;
-    let tableHeader = `<thead><tr>` + `<th>${date} ${time}</th><th>${delta_millis}</th><th>${getWeeks(delta_millis)}</th>`+ `</tr></thead>`;
+    let tableHTML = `<table class="debugTable">`;
+    let tableHeader = `<thead><tr>` + `<th>${date} ${time}</th><th>${delta_millis}</th><th>${getWeeks(delta_millis).toFixed(3)} viikkoa</th>` + `</tr></thead>`;
     tableHTML += tableHeader;
+
     tableHTML += "<tbody>"
     for (const party of partyTimes) {
         tableHTML += "<tr>"

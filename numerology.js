@@ -1,7 +1,7 @@
 // Generate an array of round moments in milliseconds as well as the reason for their specialness
-function generateRoundMoments() {
+function generateRoundMoments(maxBase=24) {
     roundMoments = [];
-    for (let base=2; base<=100; base++) {
+    for (let base=2; base<=maxBase; base++) {
         expbound = Math.log(1e15) / Math.log(base);
         for (let exp=0; exp<expbound; exp++) {
             candidates = [];
