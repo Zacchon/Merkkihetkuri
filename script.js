@@ -96,3 +96,6 @@ speed of light: 299792458 (units)
 */
 // TODO: milloin täytetään kuukausia
 // HUOMAA: karkaussekunneista voi olla päänvaivaa, mutta unohdetaan ne ensi alkuun
+
+// TODO: tulevan hetken laskeminen 
+// TODO: merkkihetkien filtteröinti
